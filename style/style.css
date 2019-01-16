@@ -47,7 +47,7 @@ body{
     display: block;
     position: relative;
 }
-.item-link:hover .item-link::after{
+.item-link:after{
     content:'';
     position: absolute;
     bottom:0;
@@ -55,8 +55,14 @@ body{
     left:0;
     height:3px;
     background-color: #ccc;
-    transition: all 0.3s ease-in-out;
-    /* visibility: hidden; */
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.3s ease-in-out;
+}
+.item-link:hover:after{
+    width:100%;
+    opacity: 1;
+    visibility: visible;
 }
 .has-submenu{
     position: relative;
@@ -68,7 +74,7 @@ body{
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 10.3s;
+    transition: all 0.3s;
     padding-inline-start: 0px;
     width: 100px;
     margin-top: 15px;
@@ -76,10 +82,8 @@ body{
 .has-submenu .item{
     position: relative;
     padding:5px 5px;
-    /* display: block;  */
-
 }
-.has-submenu .item-link:hover .submenu{
+.has-submenu:hover .submenu{
     opacity: 1;
     visibility: visible;
 }
